@@ -1,0 +1,51 @@
+.card {
+    width: 300px;
+}
+
+.card .top {
+    background-color: #ccc9c9;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card img {
+    width: 300px;
+    position: relative;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+.card .botton {
+    background: #dbd9d9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 0px 10px 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.card .botton h4 {
+    width: 100px;
+    color: #27282c;
+    font-size: 30px;
+    line-height: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding: 0 35px;
+}
+
+.card .botton h5 {
+    width: 100px;
+    font-size: 12px;
+    line-height: 22px;
+    color: #5e5c5c;
+    padding: 0 35px;
+}
+
+.card .botton .rating {
+    background-color: #5f626b;
+    font-size: 25px;
+    line-height: 22px;
+    color: #ffffff;
+    padding: 20px;
+    margin: 20px 112px;
+    border-radius: 60%;
+}
