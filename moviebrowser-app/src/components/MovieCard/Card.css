@@ -14,12 +14,28 @@
     border-top-right-radius: 5%;
 }
 
+.card .details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+}
+
+.card .details-container h4 {
+    width: 70%; /* Ajuste a largura conforme necessário */
+    color: #27282c;
+    font-size: 30px;
+    line-height: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
 .card .botton {
-    background: #dbd9d9;
+    background: #ccc9c9;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .card .botton h4 {
@@ -40,12 +56,11 @@
     padding: 0 35px;
 }
 
-.card .botton .rating {
+.card .rating {
     background-color: #5f626b;
     font-size: 25px;
     line-height: 22px;
     color: #ffffff;
-    padding: 20px;
-    margin: 20px 112px;
-    border-radius: 60%;
+    padding: 8px;
+    border-radius: 50%;
 }
