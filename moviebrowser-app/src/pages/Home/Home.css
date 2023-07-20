@@ -1,0 +1,8 @@
+.movieline {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}

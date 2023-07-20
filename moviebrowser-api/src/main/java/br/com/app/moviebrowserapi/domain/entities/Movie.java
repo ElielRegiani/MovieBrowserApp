@@ -8,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import br.com.app.moviebrowserapi.domain.DTO.MovieDTO;
+import br.com.app.moviebrowserapi.domain.DTO.MovieInfoDTO;
 
 @Entity
 @Table(name = "movie")
@@ -26,8 +30,9 @@ public class Movie {
     private MovieStatus status;
     private String logo;
     private List<Actor> cast;
+    private User user;
 
-    public Movie(String name, String description, Date releaseDate, String duration, List<Genre> genres, String budget, Double rating, MovieStatus status, String logo, List<Actor> cast) {
+    public Movie(String name, String description, Date releaseDate, String duration, List<Genre> genres, String budget, Double rating, MovieStatus status, String logo, List<Actor> cast, User user) {
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
@@ -38,6 +43,7 @@ public class Movie {
         this.status = status;
         this.logo = logo;
         this.cast = cast;
+        this.user = user;
     }
 
     @Id
@@ -138,5 +144,23 @@ public class Movie {
 
     public void setCast(List<Actor> cast) {
         this.cast = cast;
+    }
+
+    @ManyToOne
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public MovieDTO toMovieDTO() {
+        return new MovieDTO(this.getName(), this.getGenres(), this.getRating());
+    }
+
+    public MovieInfoDTO toMovieInfoDTO(Movie movie) {
+        return new MovieInfoDTO(this.getName(), this.getDescription(), this.getReleaseDate(),
+                this.getDuration(), this.getGenres(), this.budget, this.getRating(), this.logo, this.cast);
     }
 }
