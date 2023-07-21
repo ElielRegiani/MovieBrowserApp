@@ -1,3 +1,7 @@
+.home {
+    background-color: #494848;
+}
+
 .movieline {
     display: flex;
     justify-content: space-around;

@@ -10,7 +10,7 @@ const TopMenuBar = () => {
             <Container fluid>
                 <Navbar.Brand href="/">
                     <img
-                    src="../../../public/images/logo.png"
+                    src="/images/logo.png"
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
