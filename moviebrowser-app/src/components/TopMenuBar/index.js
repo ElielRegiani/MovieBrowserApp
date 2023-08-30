@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 const TopMenuBar = () => {
     return (
@@ -40,7 +41,9 @@ const TopMenuBar = () => {
                         />
                         <Button variant="outline-success">Search</Button>
                     </Form>
-                    <Button className="m-2" variant="danger">Login</Button>
+                    <Link to="/login">
+                        <Button className="m-2" variant="danger">Login</Button>
+                    </Link>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

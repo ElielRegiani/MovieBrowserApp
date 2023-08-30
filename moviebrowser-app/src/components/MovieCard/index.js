@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = (props) => {
     return (
-        <Link to="/movielist">
+        <Link to={"/moviedescription/" + props.movie.id}>
           <Card className="card" style={{ width: '21.5rem' }}>
             <Card.Img variant="top" src={"https://image.tmdb.org/t/p/w500/" + props.movie.poster_path} />
             <Card.Body>

@@ -2,7 +2,6 @@ package br.com.app.moviebrowserapi.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,7 @@ public class MovieBrowserController {
     @Autowired
     MovieService movieService;
 
-    @GetMapping(name = "movieslist/{userId}")
+    @GetMapping("movieslist/{userId}")
     public List<MovieDTO> getUserMovieList(@PathVariable Long userId) {
         User user = new User();
         List<MovieDTO> movieDTOList = new ArrayList<>();
@@ -29,7 +28,7 @@ public class MovieBrowserController {
         return movieDTOList;
     }
 
-    @GetMapping(name = "/{userId}/movieslist/{movieName}")
+    @GetMapping("/{userId}/movieslist/{movieName}")
     public List<MovieDTO> getUserByMovieName(@PathVariable Long userId, @PathVariable String movieName) {
         User user = new User();
         List<MovieDTO> movieDTOList = new ArrayList<>();
@@ -37,8 +36,8 @@ public class MovieBrowserController {
         return movieDTOList;
     }
 
-    @GetMapping(name = "/{userId}/movieslist")
-    public List<MovieDTO> getUser() {
+    @GetMapping("/{userId}/movieslist")
+    public List<MovieDTO> getUser(@PathVariable Long userId) {
         User user = new User();
         List<MovieDTO> movieDTOList = new ArrayList<>();
         movieService.getUserMovies(user).forEach(movie -> movieDTOList.add(movie.toMovieDTO()));

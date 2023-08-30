@@ -2,14 +2,18 @@ package br.com.app.moviebrowserapi.domain.entities;
 
 import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.app.moviebrowserapi.domain.DTO.MovieDTO;
@@ -29,7 +33,6 @@ public class Movie {
     private Double rating;
     private MovieStatus status;
     private String logo;
-    private List<Actor> cast;
     private User user;
 
     public Movie(String name, String description, Date releaseDate, String duration, List<Genre> genres, String budget, Double rating, MovieStatus status, String logo, List<Actor> cast, User user) {
@@ -42,7 +45,6 @@ public class Movie {
         this.rating = rating;
         this.status = status;
         this.logo = logo;
-        this.cast = cast;
         this.user = user;
     }
 
@@ -92,6 +94,9 @@ public class Movie {
         this.duration = duration;
     }
 
+    @ElementCollection(targetClass = Genre.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "movie_genre", joinColumns = @JoinColumn(name = "movie_id"))
+    @Enumerated(EnumType.STRING)
     @Column(name = "genres")
     public List<Genre> getGenres() {
         return genres;
@@ -137,15 +142,6 @@ public class Movie {
         this.logo = logo;
     }
 
-    @OneToMany(mappedBy = "cast", cascade = CascadeType.ALL)
-    public List<Actor> getCast() {
-        return cast;
-    }
-
-    public void setCast(List<Actor> cast) {
-        this.cast = cast;
-    }
-
     @ManyToOne
     public User getUser() {
         return user;
@@ -161,6 +157,6 @@ public class Movie {
 
     public MovieInfoDTO toMovieInfoDTO(Movie movie) {
         return new MovieInfoDTO(this.getName(), this.getDescription(), this.getReleaseDate(),
-                this.getDuration(), this.getGenres(), this.budget, this.getRating(), this.logo, this.cast);
+                this.getDuration(), this.getGenres(), this.budget, this.getRating(), this.logo);
     }
 }

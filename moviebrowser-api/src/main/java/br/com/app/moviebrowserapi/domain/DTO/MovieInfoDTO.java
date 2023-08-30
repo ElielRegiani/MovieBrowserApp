@@ -18,7 +18,7 @@ public class MovieInfoDTO {
     private String logo;
     private List<Actor> cast;
 
-    public MovieInfoDTO(String name, String description, Date releaseDate, String duration, List<Genre> genres, String budget, Double rating, String logo, List<Actor> cast) {
+    public MovieInfoDTO(String name, String description, Date releaseDate, String duration, List<Genre> genres, String budget, Double rating, String logo) {
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
